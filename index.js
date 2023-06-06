@@ -42,7 +42,12 @@ app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
 app.use("/", (req, res) => {
     console.log("Hey , this is main url");
-})
+});
+app.use(express.static(path.join(__dirname, "/blog-page/build")));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/blog-page/build', 'index.html'));
+});
 app.listen(PORT, () => {
     console.log("Hello World on port" + PORT);
 })
