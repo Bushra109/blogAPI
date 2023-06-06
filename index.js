@@ -7,7 +7,8 @@ const authRoute = require("./routes/auth");
 const userRoute = require("./routes/user");
 const postRoute = require("./routes/post");
 const categoryRoute = require("./routes/categories");
-const path = require("path")
+const path = require("path");
+const PORT = process.env.PORT || 5000
 
 dotenv.config();
 
@@ -42,6 +43,6 @@ app.use("/api/categories", categoryRoute);
 app.use("/", (req, res) => {
     console.log("Hey , this is main url");
 })
-app.listen("5000", () => {
+app.listen(PORT, () => {
     console.log("Hello World");
 })
