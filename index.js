@@ -8,10 +8,10 @@ const userRoute = require("./routes/user");
 const postRoute = require("./routes/post");
 const categoryRoute = require("./routes/categories");
 const path = require("path");
-const cors = require('cors');
+
 const PORT = process.env.PORT || 5000;
 
-app.use(cors({ origin: 'http://localhost:3000' }));
+
 
 dotenv.config();
 
