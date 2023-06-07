@@ -8,7 +8,10 @@ const userRoute = require("./routes/user");
 const postRoute = require("./routes/post");
 const categoryRoute = require("./routes/categories");
 const path = require("path");
+const cors = require('cors');
 const PORT = process.env.PORT || 5000;
+
+app.use(cors({ origin: 'http://localhost:3000' }));
 
 dotenv.config();
 
@@ -16,10 +19,10 @@ app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "/images")))
 
 mongoose.connect(process.env.MONGO_URL, {
-    // useNewUrlParser: true,
-    // useUnifiedTopology: true,
-    // useFindAndModify: true,
-    // useCreateIndex: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: true,
+    useCreateIndex: true,
 }).then(console.log("Connected to mongoDB")).catch(err => console.log(err + "is error"));
 
 const storage = multer.diskStorage({
