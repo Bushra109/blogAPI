@@ -40,9 +40,9 @@ app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
-app.use("/", (req, res) => {
-    console.log("Hey , this is main url");
-});
+// app.use("/", (req, res) => {
+//     console.log("Hey , this is main url");
+// });
 
 app.listen(PORT, () => {
     console.log("Hello World on port" + PORT);
